@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kiruthika Venkatesan — Product Manager, Payments & Clearing</title>
+<meta name="description" content="Product Manager specializing in USD clearing, payments, and regulated financial services. 5+ years building scalable verification, settlement, and clearing platforms." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f4f1ea;
+    --paper-deep: #ebe6db;
+    --accent: #c8553d;
+    --accent-deep: #9c3f2c;
+    --rule: rgba(26, 26, 26, 0.18);
+    --muted: rgba(26, 26, 26, 0.6);
+    --gold: #b8893a;
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', 'Courier New', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(200, 85, 61, 0.04) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(184, 137, 58, 0.05) 0%, transparent 50%);
+  }
+
+  /* Subtle paper grain */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.012) 0px, rgba(0,0,0,0.012) 1px, transparent 1px, transparent 3px);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.5;
+  }
+
+  ::selection { background: var(--accent); color: var(--paper); }
+
+  /* === NAV === */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 20px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(244, 241, 234, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .nav-mark {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-mark .dot {
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 500;
+  }
+
+  .nav-links a {
+    color: var(--ink);
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* === HERO === */
+  .hero {
+    min-height: 100vh;
+    padding: 120px 48px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    margin-bottom: 32px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .hero-meta .line {
+    width: 40px; height: 1px; background: var(--ink);
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(48px, 7vw, 96px);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin-bottom: 32px;
+    font-variation-settings: "opsz" 144;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--ink);
+    margin-bottom: 40px;
+    max-width: 520px;
+    font-weight: 300;
+    opacity: 0.85;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    border: 1px solid var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(200, 85, 61, 0.25);
+  }
+
+  .btn.outline {
+    background: transparent;
+    color: var(--ink);
+  }
+
+  .btn.outline:hover {
+    background: var(--ink);
+    color: var(--paper);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  }
+
+  /* Hero side card */
+  .hero-card {
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    padding: 40px;
+    position: relative;
+    box-shadow:
+      0 1px 3px rgba(0,0,0,0.04),
+      0 20px 60px rgba(0,0,0,0.06);
+  }
+
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: -1px; right: -1px;
+    height: 4px;
+    background: var(--accent);
+  }
+
+  .hero-card-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-top: 24px;
+  }
+
+  .stat {
+    background: var(--paper);
+    padding: 20px;
+  }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .stat-num em {
+    color: var(--accent);
+    font-style: normal;
+  }
+
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .now-strip {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 16px;
+  }
+
+  .now-strip .pulse {
+    width: 8px; height: 8px;
+    background: #2a8950;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
+  .now-strip .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+  }
+
+  .now-strip .value {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--ink);
+    font-weight: 500;
+    margin-left: auto;
+  }
+
+  /* === SECTION SCAFFOLD === */
+  section {
+    padding: 120px 48px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    margin-bottom: 16px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .section-num::before {
+    content: '';
+    width: 24px; height: 1px;
+    background: var(--accent);
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+    font-variation-settings: "opsz" 144;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .section-deck {
+    font-family: var(--serif);
+    font-size: 20px;
+    line-height: 1.5;
+    max-width: 640px;
+    color: var(--ink);
+    opacity: 0.75;
+    font-weight: 300;
+    margin-bottom: 64px;
+  }
+
+  /* === ABOUT === */
+  #about {
+    background: var(--paper-deep);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .about-prose {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.55;
+    font-weight: 300;
+    color: var(--ink);
+  }
+
+  .about-prose p { margin-bottom: 24px; }
+  .about-prose strong {
+    font-weight: 600;
+    background: linear-gradient(180deg, transparent 70%, rgba(200, 85, 61, 0.25) 70%);
+    padding: 0 2px;
+  }
+
+  .about-side {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .info-block {
+    border-left: 2px solid var(--accent);
+    padding: 4px 0 4px 20px;
+  }
+
+  .info-block .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .info-block .value {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--ink);
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  /* === EXPERIENCE === */
+  .timeline {
+    position: relative;
+  }
+
+  .role {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 64px;
+    padding: 48px 0;
+    border-top: 1px solid var(--rule);
+    position: relative;
+    transition: padding 0.4s ease;
+  }
+
+  .role:last-child { border-bottom: 1px solid var(--rule); }
+
+  .role:hover {
+    padding-left: 12px;
+  }
+
+  .role:hover .role-marker {
+    background: var(--accent);
+    transform: scale(1.5);
+  }
+
+  .role-marker {
+    position: absolute;
+    left: -6px;
+    top: 56px;
+    width: 12px; height: 12px;
+    background: var(--ink);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+
+  .role-meta {
+    padding-left: 24px;
+  }
+
+  .role-period {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .role-org {
+    font-family: var(--serif);
+    font-size: 14px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .role-title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    color: var(--ink);
+  }
+
+  .role-bullets {
+    list-style: none;
+    margin-bottom: 24px;
+  }
+
+  .role-bullets li {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.55;
+    margin-bottom: 14px;
+    padding-left: 24px;
+    position: relative;
+    color: var(--ink);
+    font-weight: 300;
+  }
+
+  .role-bullets li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .role-bullets li strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .role-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 6px 12px;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 100px;
+  }
+
+  /* === CASE STUDIES === */
+  #work {
+    background: var(--ink);
+    color: var(--paper);
+    border-top: 1px solid var(--rule);
+  }
+
+  #work .section-num { color: rgba(244, 241, 234, 0.5); }
+  #work .section-num::before { background: var(--accent); }
+  #work .section-title { color: var(--paper); }
+  #work .section-deck { color: rgba(244, 241, 234, 0.7); }
+
+  .cases {
+    display: grid;
+    gap: 48px;
+  }
+
+  .case {
+    border: 1px solid rgba(244, 241, 234, 0.15);
+    padding: 48px;
+    background: linear-gradient(135deg, rgba(244,241,234,0.03), transparent);
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 48px;
+    align-items: start;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .case::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.6s ease;
+  }
+
+  .case:hover { border-color: var(--accent); }
+  .case:hover::before { width: 100%; }
+
+  .case-num {
+    font-family: var(--serif);
+    font-size: 96px;
+    font-weight: 300;
+    line-height: 0.9;
+    color: var(--accent);
+    font-style: italic;
+    margin-bottom: 16px;
+    font-variation-settings: "opsz" 144;
+  }
+
+  .case-period {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(244, 241, 234, 0.5);
+  }
+
+  .case-title {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    color: var(--paper);
+  }
+
+  .case-desc {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.6;
+    color: rgba(244, 241, 234, 0.8);
+    margin-bottom: 24px;
+    font-weight: 300;
+  }
+
+  .case-results {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(244, 241, 234, 0.15);
+    border: 1px solid rgba(244, 241, 234, 0.15);
+    margin-top: 20px;
+  }
+
+  .case-results .stat {
+    background: var(--ink);
+    padding: 16px;
+  }
+
+  .case-results .stat-num {
+    font-size: 22px;
+    color: var(--paper);
+    margin-bottom: 4px;
+  }
+
+  .case-results .stat-num em { color: var(--accent); font-style: normal; }
+
+  .case-results .stat-label {
+    font-size: 9px;
+    color: rgba(244, 241, 234, 0.5);
+  }
+
+  /* === SKILLS === */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+
+  .skill-cat {
+    background: var(--paper);
+    padding: 40px;
+    transition: background 0.3s ease;
+  }
+
+  .skill-cat:hover { background: var(--paper-deep); }
+
+  .skill-cat-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+
+  .skill-cat-meta {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 24px;
+  }
+
+  .skill-list {
+    list-style: none;
+  }
+
+  .skill-list li {
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--ink);
+    padding: 6px 0;
+    border-bottom: 1px dotted var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .skill-list li:last-child { border-bottom: none; }
+
+  .skill-list li::after {
+    content: '●';
+    color: var(--accent);
+    font-size: 8px;
+  }
+
+  /* === EDUCATION + CERTS === */
+  #credentials {
+    background: var(--paper-deep);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .credentials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+
+  .edu-item {
+    padding: 32px 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .edu-item:last-child { border-bottom: 1px solid var(--rule); }
+
+  .edu-school {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+
+  .edu-degree {
+    font-family: var(--serif);
+    font-size: 17px;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+
+  .edu-meta {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink);
+  }
+
+  .edu-meta .gpa {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .certs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .cert {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 24px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    transition: all 0.3s ease;
+  }
+
+  .cert:hover {
+    border-color: var(--accent);
+    transform: translateX(4px);
+  }
+
+  .cert-icon {
+    width: 32px; height: 32px;
+    background: var(--ink);
+    color: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .cert-name {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--ink);
+  }
+
+  /* === CONTACT === */
+  #contact {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 120px 48px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #contact::before {
+    content: 'AVAILABLE';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--serif);
+    font-size: clamp(160px, 24vw, 360px);
+    font-weight: 300;
+    letter-spacing: -0.05em;
+    color: rgba(244, 241, 234, 0.04);
+    pointer-events: none;
+    white-space: nowrap;
+    font-style: italic;
+    font-variation-settings: "opsz" 144;
+    z-index: 0;
+  }
+
+  #contact .container {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #contact .section-num {
+    justify-content: center;
+    color: rgba(244, 241, 234, 0.5);
+  }
+
+  #contact .section-num::before { background: var(--accent); }
+
+  #contact h2 {
+    font-family: var(--serif);
+    font-size: clamp(56px, 8vw, 112px);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin-bottom: 32px;
+    color: var(--paper);
+    font-variation-settings: "opsz" 144;
+  }
+
+  #contact h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .contact-deck {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.5;
+    color: rgba(244, 241, 234, 0.75);
+    margin-bottom: 56px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 300;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 64px;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-card {
+    border: 1px solid rgba(244, 241, 234, 0.2);
+    padding: 28px;
+    text-align: left;
+    text-decoration: none;
+    color: var(--paper);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-card:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-4px);
+  }
+
+  .contact-card .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(244, 241, 234, 0.5);
+    margin-bottom: 12px;
+  }
+
+  .contact-card .value {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.4;
+    color: var(--paper);
+    word-break: break-word;
+  }
+
+  .contact-card .arrow {
+    position: absolute;
+    top: 28px; right: 24px;
+    font-size: 14px;
+    transition: transform 0.3s ease;
+  }
+
+  .contact-card:hover .arrow { transform: translate(4px, -4px) rotate(-15deg); }
+
+  footer {
+    border-top: 1px solid rgba(244, 241, 234, 0.15);
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(244, 241, 234, 0.4);
+  }
+
+  /* === SCROLL ANIMATIONS === */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 1024px) {
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 56px;
+      padding: 120px 32px 60px;
+    }
+
+    .case {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      padding: 32px;
+    }
+
+    .about-grid, .credentials-grid {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .role {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .role-marker { display: none; }
+
+    .case-results { grid-template-columns: repeat(2, 1fr); }
+
+    .contact-grid { grid-template-columns: 1fr; }
+
+    section { padding: 80px 32px; }
+
+    nav { padding: 16px 24px; }
+
+    .nav-links { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    .stat-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 56px; }
+    .nav-mark { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-mark">
+    <span class="dot"></span>
+    Kiruthika Venkatesan
+  </div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#work">Case Studies</a>
+    <a href="#credentials">Credentials</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="hero-meta">
+      <span class="line"></span>
+      <span>Product Manager / Payments &amp; Clearing</span>
+    </div>
+    <h1>Building <em>trust</em><br/>at the speed<br/>of money.</h1>
+    <p class="hero-sub">
+      Five years shipping payments, clearing, and verification products for the institutions that move trillions —
+      where settlement accuracy, regulatory compliance, and client trust are non-negotiable.
+    </p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn">Let's talk →</a>
+      <a href="#work" class="btn outline">See the work</a>
+    </div>
+  </div>
+
+  <div class="hero-card">
+    <div class="hero-card-label">— Currently</div>
+
+    <div class="now-strip">
+      <span class="pulse"></span>
+      <span class="label">Open to Roles</span>
+      <span class="value">Tampa, FL · Open to relocate</span>
+    </div>
+
+    <div style="font-family: var(--serif); font-size: 17px; line-height: 1.55; color: var(--ink); margin: 16px 0 8px;">
+      Product Manager focused on <strong style="color: var(--accent);">USD clearing, cross-border settlement</strong>,
+      and the data infrastructure underneath them.
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat">
+        <span class="stat-num">5<em>+</em></span>
+        <span class="stat-label">Years in<br/>Payments PM</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">$<em>7.8</em>M</span>
+        <span class="stat-label">Measurable<br/>impact driven</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num"><em>99.7</em>%</span>
+        <span class="stat-label">Settlement<br/>accuracy</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num"><em>12</em></span>
+        <span class="stat-label">Fortune 500<br/>clients served</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-num"><span>01</span><span>About</span></div>
+  <h2 class="section-title">Why <em>payments</em>.</h2>
+
+  <div class="about-grid" style="margin-top: 48px;">
+    <div class="about-prose">
+      <p>
+        Payments is one of the few domains where <strong>a single millisecond of latency</strong>
+        can mean the difference between a deal closing and a client walking. That's the kind of
+        product surface I want to design for.
+      </p>
+      <p>
+        I've spent five years building the verification, clearing, and settlement systems that institutional
+        clients quietly depend on — translating <strong>SWIFT MT and ISO 20022</strong> requirements into
+        roadmaps, partnering with engineering and risk in highly matrixed orgs, and turning compliance
+        constraints into product opportunities.
+      </p>
+      <p>
+        I lead with <strong>data acumen and customer obsession</strong>. I write SQL when the dashboard
+        doesn't answer the question. I sit in 40+ discovery sessions a quarter. I tell the story to a
+        VP and a developer in the same meeting and bring both with me.
+      </p>
+    </div>
+
+    <div class="about-side">
+      <div class="info-block">
+        <div class="label">— Specialization</div>
+        <div class="value">USD Clearing · Cross-Border Settlement · Verification Workflows · Payment Risk &amp; Reconciliation</div>
+      </div>
+      <div class="info-block">
+        <div class="label">— Operating Mode</div>
+        <div class="value">Voice of the customer · End-to-end product life cycle · Cross-functional alignment without formal authority · Compelling executive storytelling</div>
+      </div>
+      <div class="info-block">
+        <div class="label">— Tools of the Trade</div>
+        <div class="value">SQL · Tableau · Power BI · Jira · Figma · Mixpanel · Postman · AI/ML model partnerships</div>
+      </div>
+      <div class="info-block">
+        <div class="label">— What I Optimize For</div>
+        <div class="value">Cost · Feature/Functionality · Risk Posture · Reliability — in that priority, always.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-num"><span>02</span><span>Experience</span></div>
+  <h2 class="section-title">Five years, <em>three orgs</em>, one obsession.</h2>
+  <p class="section-deck">Each role deepened the same thread: making regulated payment infrastructure faster, more accurate, and easier to trust.</p>
+
+  <div class="timeline">
+
+    <article class="role">
+      <div class="role-marker"></div>
+      <div class="role-meta">
+        <div class="role-period">May 2025 — Dec 2025</div>
+        <div class="role-org">FINRA</div>
+      </div>
+      <div>
+        <h3 class="role-title">Product Manager — Payments Clearing &amp; Settlement Platform</h3>
+        <ul class="role-bullets">
+          <li><strong>Acted as the voice of the customer driving product strategy and vision for USD clearing</strong> — synthesized 40+ enterprise client discovery sessions into an 18-month roadmap; partnered with Engineering, Ops, Compliance, and Risk to ship 3 major clearing launches; grew adoption 62% → 89%, costs ↓41%.</li>
+          <li><strong>Built the success-metrics framework</strong> spanning cost, feature/functionality, risk posture, and reliability — designed real-time dashboards (SQL, Tableau) tracking settlement accuracy 99.7%, latency 12min→45sec, and exception rates; data-driven storytelling influenced executive investments.</li>
+          <li>Discovered 43% of clearing exceptions came from <strong>SWIFT MT ↔ ISO 20022 format mismatches</strong>; designed a configurable normalization layer that cut false rejections by 52% with zero false approvals.</li>
+        </ul>
+        <div class="role-tags">
+          <span class="tag">USD Clearing</span>
+          <span class="tag">SWIFT MT / ISO 20022</span>
+          <span class="tag">AI Anomaly Detection</span>
+          <span class="tag">Risk Posture</span>
+          <span class="tag">99.7% Accuracy</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="role">
+      <div class="role-marker"></div>
+      <div class="role-meta">
+        <div class="role-period">Jul 2021 — Aug 2024</div>
+        <div class="role-org">Cognizant Technology Solutions</div>
+      </div>
+      <div>
+        <h3 class="role-title">Senior Product Manager — Enterprise Payments &amp; Clearing Solutions</h3>
+        <ul class="role-bullets">
+          <li><strong>Owned end-to-end product life cycle</strong> for USD clearing and cross-border settlement products serving 12 Fortune 500 clients — discovery, ideation, requirements, value management; drove $7.8M impact, grew adoption 51% → 86%.</li>
+          <li><strong>Crafted compelling stories advising and influencing internal management and external clients</strong> — delivered 12 QBRs to C-level stakeholders; translated complex Fedwire/CHIPS/ISO 20022 requirements into roadmap; NPS +22 → +51, exceptions ↓62%.</li>
+          <li>Operated in a highly matrixed org across Engineering, Legal, Compliance, Risk, and Sales — managed 6 Agile squads, mentored 3 associate PMs.</li>
+        </ul>
+        <div class="role-tags">
+          <span class="tag">Cross-Border Settlement</span>
+          <span class="tag">Fedwire · CHIPS</span>
+          <span class="tag">12 Fortune 500</span>
+          <span class="tag">$7.8M Impact</span>
+          <span class="tag">NPS +22→+51</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="role">
+      <div class="role-marker"></div>
+      <div class="role-meta">
+        <div class="role-period">Jun 2020 — Jul 2021</div>
+        <div class="role-org">Cognizant Technology Solutions</div>
+      </div>
+      <div>
+        <h3 class="role-title">Associate Product Manager — Payments Analytics &amp; Settlement Operations</h3>
+        <ul class="role-bullets">
+          <li><strong>Managed discovery efforts and market research</strong> across 20+ enterprise clients; built clearing analytics dashboards (SQL, Tableau) tracking transaction volume, settlement accuracy, and exception rates.</li>
+          <li>Identified 3 clearing workflow issues causing 61% of settlement exceptions — shipped fixes in one sprint (85/wk → 33/wk); improved client onboarding 54% → 78%.</li>
+          <li>Mapped the complete client onboarding journey; redesigned the developer portal so first-clearing-call dropped 18 days → 2 days.</li>
+        </ul>
+        <div class="role-tags">
+          <span class="tag">SQL · Tableau</span>
+          <span class="tag">Agile</span>
+          <span class="tag">Onboarding 54%→78%</span>
+          <span class="tag">Settlement Ops</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="work">
+  <div class="section-num"><span>03</span><span>Case Studies</span></div>
+  <h2 class="section-title">The <em>receipts</em>.</h2>
+  <p class="section-deck">Selected projects where strategy met shipped product — measured by the things institutional clients actually care about.</p>
+
+  <div class="cases">
+
+    <article class="case">
+      <div>
+        <div class="case-num">01</div>
+        <div class="case-period">18 Months · Lead PM</div>
+      </div>
+      <div>
+        <h3 class="case-title">Payments Clearing Modernization: Strategy, Launch, Success Metrics</h3>
+        <p class="case-desc">
+          Owned product strategy for a payments clearing platform serving institutional treasury and operations teams.
+          Managed discovery, owned the backlog, guided three product launches, built a success-metrics framework spanning
+          cost, functionality, risk, and reliability — and shipped AI-powered transaction monitoring with 93% precision.
+        </p>
+        <div class="case-results">
+          <div class="stat">
+            <span class="stat-num"><em>84</em>%</span>
+            <span class="stat-label">Adoption</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">$<em>4.2</em>M</span>
+            <span class="stat-label">Value Driven</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num"><em>45</em>s</span>
+            <span class="stat-label">Latency<br/>(was 12 min)</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num"><em>−41</em>%</span>
+            <span class="stat-label">Processing Cost</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="case">
+      <div>
+        <div class="case-num">02</div>
+        <div class="case-period">10 Months · PM</div>
+      </div>
+      <div>
+        <h3 class="case-title">Enterprise Payment Settlement: Cross-Border &amp; Exception Management</h3>
+        <p class="case-desc">
+          Led the product life cycle for cross-border settlement and exception handling — discovery through value management.
+          Built deep enterprise relationships across 8 financial-services clients as the product voice, influenced platform
+          investments and partnerships, and aligned cross-functional teams without formal authority.
+        </p>
+        <div class="case-results">
+          <div class="stat">
+            <span class="stat-num"><em>+51</em></span>
+            <span class="stat-label">NPS<br/>(was +22)</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num"><em>−62</em>%</span>
+            <span class="stat-label">Clearing<br/>Exceptions</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num"><em>12</em></span>
+            <span class="stat-label">QBRs<br/>Delivered</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num"><em>8</em>d</span>
+            <span class="stat-label">Onboarding<br/>(was 6 weeks)</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-num"><span>04</span><span>Skills</span></div>
+  <h2 class="section-title">Operating <em>system</em>.</h2>
+  <p class="section-deck">The capability stack — from payments domain depth to data fluency to cross-functional execution.</p>
+
+  <div class="skills-grid">
+
+    <div class="skill-cat">
+      <div class="skill-cat-title">Payments &amp; Clearing</div>
+      <div class="skill-cat-meta">— Domain depth</div>
+      <ul class="skill-list">
+        <li>USD Clearing</li>
+        <li>Cross-Border Settlement</li>
+        <li>Clearing &amp; Reconciliation</li>
+        <li>SWIFT MT / ISO 20022</li>
+        <li>Settlement Accuracy</li>
+        <li>Payment Risk Posture</li>
+        <li>Scalability / Resiliency / Stability</li>
+      </ul>
+    </div>
+
+    <div class="skill-cat">
+      <div class="skill-cat-title">Product Life Cycle</div>
+      <div class="skill-cat-meta">— Method</div>
+      <ul class="skill-list">
+        <li>Discovery &amp; Market Research</li>
+        <li>Product Strategy &amp; Vision</li>
+        <li>Backlog Ownership</li>
+        <li>Strategic Roadmap</li>
+        <li>Voice of Customer</li>
+        <li>Value Management</li>
+        <li>Success Metrics Framework</li>
+      </ul>
+    </div>
+
+    <div class="skill-cat">
+      <div class="skill-cat-title">Data &amp; Execution</div>
+      <div class="skill-cat-meta">— Tooling</div>
+      <ul class="skill-list">
+        <li>SQL (Strong)</li>
+        <li>Tableau · Power BI</li>
+        <li>Jira · Agile</li>
+        <li>Highly Matrixed Orgs</li>
+        <li>Cross-Functional Leadership</li>
+        <li>Compelling Storytelling</li>
+        <li>Executive Communication</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section id="credentials">
+  <div class="section-num"><span>05</span><span>Credentials</span></div>
+  <h2 class="section-title">Education &amp; <em>certs</em>.</h2>
+
+  <div class="credentials-grid" style="margin-top: 48px;">
+
+    <div>
+      <div class="edu-item">
+        <div class="edu-school">University of Denver</div>
+        <div class="edu-degree">M.S. Information Technology</div>
+        <div class="edu-meta">
+          <span>Aug 2024 — May 2026</span>
+          <span class="gpa">CGPA 3.97 / 4.0</span>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-school">Anna University</div>
+        <div class="edu-degree">B.E. Computer Science</div>
+        <div class="edu-meta">
+          <span>Aug 2017 — May 2021</span>
+          <span class="gpa">CGPA 3.8 / 4.0</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div style="font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--muted); margin-bottom: 24px;">
+        — Professional Certifications
+      </div>
+      <div class="certs-list">
+        <div class="cert">
+          <div class="cert-icon">SF</div>
+          <div class="cert-name">Salesforce AI Associate</div>
+        </div>
+        <div class="cert">
+          <div class="cert-icon">AW</div>
+          <div class="cert-name">AWS Cloud Practitioner</div>
+        </div>
+        <div class="cert">
+          <div class="cert-icon">SF</div>
+          <div class="cert-name">Salesforce Administrator (ADM 201)</div>
+        </div>
+        <div class="cert">
+          <div class="cert-icon">SF</div>
+          <div class="cert-name">Salesforce App Builder</div>
+        </div>
+        <div class="cert">
+          <div class="cert-icon">GL</div>
+          <div class="cert-name">GitLab CI/CD</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-num"><span>06</span><span>Contact</span></div>
+    <h2>Let's build <em>something</em><br/>that clears.</h2>
+    <p class="contact-deck">
+      Open to senior PM and lead PM roles in payments, clearing, settlement, and adjacent
+      regulated financial-services domains. Tampa, FL — open to relocate.
+    </p>
+
+    <div class="contact-grid">
+      <a class="contact-card" href="mailto:kiruthikavenkat2704@gmail.com">
+        <span class="arrow">↗</span>
+        <div class="label">— Email</div>
+        <div class="value">kiruthikavenkat2704<br/>@gmail.com</div>
+      </a>
+      <a class="contact-card" href="tel:+17208135590">
+        <span class="arrow">↗</span>
+        <div class="label">— Phone</div>
+        <div class="value">+1 (720) 813-5590</div>
+      </a>
+    </div>
+
+    <footer>
+      <span>© 2026 Kiruthika Venkatesan</span>
+      <span>Designed and built with intention.</span>
+    </footer>
+  </div>
+</section>
+
+<script>
+  // Scroll-triggered reveals
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('section, .role, .case, .skill-cat, .edu-item, .cert, .contact-card').forEach(el => {
+    el.classList.add('reveal');
+    observer.observe(el);
+  });
+
+  // Smooth nav link active state
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const sections = document.querySelectorAll('section[id]');
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY + 120;
+    sections.forEach(sec => {
+      if (scrollY >= sec.offsetTop && scrollY < sec.offsetTop + sec.offsetHeight) {
+        navLinks.forEach(l => l.style.color = '');
+        const active = document.querySelector(`.nav-links a[href="#${sec.id}"]`);
+        if (active) active.style.color = 'var(--accent)';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
